@@ -1,0 +1,108 @@
+{
+    "common": {
+        "name": "irrigation-control",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Irrigation Control",
+        "titleLang": {
+            "en": "Irrigation Control",
+            "de": "Bewässerungssteuerung",
+            "ru": "Управление орошением",
+            "pt": "Controle de Irrigação",
+            "nl": "Irrigatie controle",
+            "fr": "Contrôle de l'irrigation",
+            "it": "Controllo dell'irrigazione",
+            "es": "Control de Riego",
+            "pl": "Kontrola nawadniania",
+            "zh-cn": "灌溉控制"
+        },
+        "desc": {
+            "en": "This adapter is able to define and control irrigation schedules.",
+            "de": "Dieser Adapter ist in der Lage, Bewässerungspläne zu definieren und zu steuern.",
+            "ru": "Этот адаптер может определять и контролировать графики полива.",
+            "pt": "Este adaptador é capaz de definir e controlar os horários de irrigação.",
+            "nl": "Deze adapter kan irrigatieschema's definiëren en regelen.",
+            "fr": "Cet adaptateur est capable de définir et de contrôler les horaires d'irrigation.",
+            "it": "Questo adattatore è in grado di definire e controllare i programmi di irrigazione.",
+            "es": "Este adaptador es capaz de definir y controlar los horarios de riego.",
+            "pl": "Ten adapter jest w stanie definiować i kontrolować harmonogramy nawadniania.",
+            "zh-cn": "该适配器能够定义和控制灌溉计划。"
+        },
+        "authors": [
+            "Stefan Köhler <tukey42@t-online.de>"
+        ],
+        "keywords": [
+            "irrigation",
+            "garden",
+            "sprinkler"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "irrigation-control.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/tukey42/ioBroker.irrigation-control/main/admin/irrigation-control.png",
+        "readme": "https://github.com/tukey42/ioBroker.irrigation-control/blob/main/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "garden",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "push",
+        "adminUI": {
+            "config": "materialize"
+        },
+        "eraseOnUpload": true,
+        "dependencies": [
+            {
+                "js-controller": ">=3.3.22"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.0.0"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}

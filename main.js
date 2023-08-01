@@ -120,6 +120,7 @@ class IrrigationControl extends utils.Adapter {
             // The state was deleted
             this.log.info(`state ${id} deleted`);
         }
+        if (!this.zones || !this.progs) return;
         if (id.startsWith(this.namespace)) {
             const comp = id.split('.');
             const i = id.substring(this.namespace.length+1);

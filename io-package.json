@@ -78,8 +78,6 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
     },
     "objects": [],
     "instanceObjects": [
@@ -101,6 +99,138 @@
                 "read": true,
                 "write": false,
                 "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "zones",
+            "type": "device",
+            "common": {
+                "name": {
+                    "en": "Zones",
+                    "de": "Zonen",
+                    "ru": "Зоны",
+                    "pt": "Zonas",
+                    "nl": "Zones",
+                    "fr": "Zones",
+                    "it": "Zone",
+                    "es": "Zonas",
+                    "pl": "Strefa",
+                    "uk": "Зони",
+                    "zh-cn": "区"
+                },
+                "desc": {
+                    "en": "List of all zones",
+                    "de": "Liste aller Zonen",
+                    "ru": "Список всех зон",
+                    "pt": "Lista de todas as zonas",
+                    "nl": "List van alle zones",
+                    "fr": "Liste de toutes les zones",
+                    "it": "Elenco di tutte le zone",
+                    "es": "Lista de todas las zonas",
+                    "pl": "Lista wszystkich stref",
+                    "uk": "Список всіх зон",
+                    "zh-cn": "各地区清单"
+                }
+            },
+            "native": {}
+        },
+        {
+            "_id": "programs",
+            "type": "device",
+            "common": {
+                "name": {
+                    "en": "Programs",
+                    "de": "Programme",
+                    "ru": "Программы",
+                    "pt": "Programas",
+                    "nl": "Programma's",
+                    "fr": "Programmes",
+                    "it": "Programmi",
+                    "es": "Programas",
+                    "pl": "Program",
+                    "uk": "Програми",
+                    "zh-cn": "方案"
+                },
+                "desc": {
+                    "en": "List of all irrigation programs",
+                    "de": "Liste aller Bewässerungsprogramme",
+                    "ru": "Список од все ирригационные программы",
+                    "pt": "Listar todos os programas de irrigação",
+                    "nl": "Leugenaar alle irrigatieprogramma's",
+                    "fr": "Liste des programmes d'irrigation",
+                    "it": "Elenco di tutti i programmi di irrigazione",
+                    "es": "Lista od todos los programas de riego",
+                    "pl": "Od wszystkich programów irygacyjnych",
+                    "uk": "Список всіх програм зрошення",
+                    "zh-cn": "所有灌溉方案清单"
+                  }
+            },
+            "native": {}
+        },  
+        {
+            "_id": "schedules",
+            "type": "device",
+            "common": {
+                "name": {
+                    "en": "schedules",
+                    "de": "Zeitpläne",
+                    "ru": "расписание",
+                    "pt": "horários",
+                    "nl": "_",
+                    "fr": "calendriers",
+                    "it": "orari",
+                    "es": "calendarios",
+                    "pl": "harmonogram",
+                    "uk": "розклад",
+                    "zh-cn": "附表"
+                  },
+                "desc": {
+                    "en": "list of all schedules",
+                    "de": "liste aller Zeitpläne",
+                    "ru": "список всех графиков",
+                    "pt": "lista de todos os horários",
+                    "nl": "vertaling:",
+                    "fr": "liste de tous les horaires",
+                    "it": "elenco di tutti gli orari",
+                    "es": "lista de todos los calendarios",
+                    "pl": "lista wszystkich planów",
+                    "uk": "список всіх графіків",
+                    "zh-cn": "附表一览表"
+                  }
+            },
+            "native": {}
+        },  
+        {
+            "_id": "config",
+            "type": "config",
+            "common": {
+                "name": {
+                    "en": "Configuration",
+                    "de": "Konfiguration",
+                    "ru": "Конфигурация",
+                    "pt": "Configuração",
+                    "nl": "Configuratie",
+                    "fr": "Configuration",
+                    "it": "Configurazione",
+                    "es": "Configuración",
+                    "pl": "Konfiguracja",
+                    "uk": "Конфігурація",
+                    "zh-cn": "配 法"
+                },
+                "desc": {
+                    "en": "Global configurations",
+                    "de": "Globale Konfigurationen",
+                    "ru": "Глобальные конфигурации",
+                    "pt": "Configurações globais",
+                    "nl": "Global configuratie",
+                    "fr": "Configurations mondiales",
+                    "it": "Configurazioni globali",
+                    "es": "Configuraciones mundiales",
+                    "pl": "Konfiguracja globalna",
+                    "uk": "Глобальні конфігурації",
+                    "zh-cn": "全球组合"
+                  }
             },
             "native": {}
         }

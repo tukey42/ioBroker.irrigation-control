@@ -1,0 +1,251 @@
+{
+    "i18n": true,
+    "type": "tabs",
+    "items": {
+        "tab_1":{
+            "type": "panel",
+            "label": "Allgemein",
+            "items": {
+                "rainSensor": {
+                    "type": "objectId",
+                    "label": "Select rain sensor state",
+                    "sm":4,
+                    "md":4,
+                    "lg":4,
+                    "xs":4,
+                    "newLine": true
+                },
+                "weatherFactor": {
+                    "type": "objectId",
+                    "label": "Select state which contains the calculated weather factor",
+                    "sm":4,
+                    "md":4,
+                    "lg":4,
+                    "xs":4,
+                    "newLine": true
+                }
+            }
+        },
+
+        "tab_2":{
+            "type": "panel",
+            "label": "Zonen",
+            "items": {
+                "zones": {
+                    "type": "table",
+                    "uniqueColumns": ["name"],
+                    "newLine": true,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "label": "",
+                    "showSecondAddAt": 5,
+                    "items": [
+                        {
+                            "type": "text",
+                            "attr": "name",
+                            "width": "8% ",
+                            "trim": false,
+                            "title": "Zonenname",
+                            "tooltip": "eindeutiger Name der Zone",
+                            "filter": false,
+                            "sort": false,
+                            "default": "",
+                        },
+                        {
+                            "type": "objectId",
+                            "attr": "state_device",
+                            "width": "10% ",
+                            "title": "State Device",
+                            "tooltip": "Select state device for zone",
+                            "filter": false,
+                            "sort": false,
+                            "default": ""
+                        },
+                        {
+                            "type": "objectId",
+                            "attr": "ontime_device",
+                            "width": "10% ",
+                            "title": "Ontime Device",
+                            "tooltip": "Select state device for zone",
+                            "filter": false,
+                            "sort": false,
+                            "default": ""
+                        },
+                        {
+                            "type": "number",
+                            "attr": "default_ontime",
+                            "width": "6% ",
+                            "title": "Ontime",
+                            "tooltip": "Enter the default ontime for zone",
+                            "filter": false,
+                            "sort": false,
+                            "min": 0,
+                            "step": 1,
+                            "default": 1
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "enabled",
+                            "width": "5% ",
+                            "title": "Zone enabled",
+                            "tooltip": "Zone is enabled",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        }
+                    ]
+                }
+            }
+        },
+
+        "tab_3":{
+            "type": "panel",
+            "label": "Programme",
+            "items": {
+                "programs": {
+                    "type": "table",
+                    "newLine": true,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "label": "",
+                    "showSecondAddAt": 5,
+                    "items": [
+                        {
+                            "type": "text",
+                            "attr": "name",
+                            "width": "8% ",
+                            "trim": false,
+                            "title": "Programmname",
+                            "tooltip": "eindeutiger Name des Programms",
+                            "filter": false,
+                            "sort": false,
+                            "default": "",
+                            "Xvalidator": "const x={};for (const c of globalData.programs) {if (x[c.name]==='x') return false; x[c.name]='x';}; return true;",
+                            "validatorNoSaveOnError": true
+                        },
+                        {
+                            "type": "text",
+                            "attr": "zone",
+                            "width": "15% ",
+                            "title": "Zone",
+                            "trim": false,
+                            "tooltip": "List of zones in this program",
+                            "filter": false,
+                            "sort": false,
+                            "default": "",
+                            "validator": "const z=globalData.zones.map(a => a.name); return z.includes(data.zone);",
+                            "validatorErrorText": "Please enter only valid zone names",
+                            "validatorNoSaveOnError": true
+                        },
+                        {
+                            "type": "number",
+                            "attr": "duration",
+                            "width": "6% ",
+                            "title": "Duration",
+                            "tooltip": "Enter duration for this zone (0 means use zone config)",
+                            "filter": false,
+                            "sort": false,
+                            "min": 0,
+                            "step": 1,
+                            "default": 0
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "weather",
+                            "width": "5% ",
+                            "title": "Weather Control",
+                            "tooltip": "Program is influenced by weather",
+                            "filter": false,
+                            "sort": false,
+                            "default": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "parallel",
+                            "width": "5% ",
+                            "title": "Parallel",
+                            "tooltip": "All zones in program run parallel (otherwise sequential)",
+                            "filter": false,
+                            "sort": false,
+                            "default": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "enabled",
+                            "width": "5% ",
+                            "title": "Program enabled",
+                            "tooltip": "Program is enabled",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        }
+                    ]
+                }
+            }
+        },
+        "tab_4":{
+            "type": "panel",
+            "label": "Zeiten",
+            "items": {
+                "schedules": {
+                    "type": "table",
+                    "newLine": true,
+                    "uniqueColumns": ["name"],
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "label": "",
+                    "showSecondAddAt": 5,
+                    "items": [
+                        {
+                            "type": "text",
+                            "attr": "name",
+                            "width": "8% ",
+                            "trim": false,
+                            "title": "Name der Startzeit",
+                            "tooltip": "eindeutiger Name der Startzeit",
+                            "filter": false,
+                            "sort": false,
+                            "default": "",
+                            "validator": "const x={};for (const c of globalData.schedules) {if (x[c.name]==='x') return false; x[c.name]='x';}; return true;",
+                            "validatorNoSaveOnError": true
+                        },
+                        {
+                            "type": "text",
+                            "attr": "program",
+                            "width": "15% ",
+                            "title": "Program",
+                            "trim": false,
+                            "tooltip": "Name of program to be started",
+                            "filter": false,
+                            "sort": false,
+                            "default": "",
+                            "validator": "const z=globalData.programs.map(a => a.name); return z.includes(data.program);",
+                            "validatorErrorText": "Please enter a valid program name",
+                            "validatorNoSaveOnError": true
+                        },    
+                        {
+                            "type": "checkbox",
+                            "attr": "enabled",
+                            "width": "5% ",
+                            "title": "Program enabled",
+                            "tooltip": "Program is enabled",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        },
+                        {
+                            "type": "cron",
+                            "attr": "schedule",
+                            "title": "Startzeiten",
+                            "complex": true,
+                            "newLine": true
+                        }
+                    ]
+                }
+             }
+        }
+    }
+}

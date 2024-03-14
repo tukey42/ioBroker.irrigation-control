@@ -9,6 +9,8 @@
 const utils = require('@iobroker/adapter-core');
 const { Zones, Zone } = require('./lib/zone.js');
 const { Programs, Program } = require('./lib/program.js');
+const { Schedules, Schedule } = require('./lib/schedule.js');
+const Weather = require('./lib/weather.js');
 
 /*
 Zone:
@@ -73,25 +75,36 @@ class IrrigationControl extends utils.Adapter {
         // Reset the connection indicator during startup
         this.setState('info.connection', false, true);
 
-        this.zones = Zones.getInstance(this);
-        await this.zones.initialize();
-        this.log.info(`Get Zone list: ${JSON.stringify(this.zones.getzonelist())}`);
+        this.log.info('Config data: ' + JSON.stringify(this.config));
 
+        this.zones = Zones.getInstance(this);
         this.progs = Programs.getInstance(this);
+        this.schedules = Schedules.getInstance(this);
+        this.weather = Weather.getInstance(this);
+
+        await Zones.create_config(this.config.zones);
+        await Programs.create_config(this.config.programs);
+        await Schedules.create_config(this.config.schedules);
+
+        await this.zones.initialize();
         await this.progs.initialize();
+        await this.schedules.initialize();
+        await this.weather.initialize();
+
+        //this.log.info(`Get Zone list: ${JSON.stringify(this.zones.getzonelist())}`);
+
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        //this.log.info('config option1: ' + this.config.option1);
-        //this.log.info('config option2: ' + this.config.option2);
+
 
         // Zones.create_zone(this, new Zone('Rasen hinten links', 'statedev', 'ontimedev', 60, true));
         // Zones.create_zone(this, new Zone('Rasen hinten rechts', 'statedev', 'ontimedev', 60, true));
-        //Programs.create_program(this, new Program('Rasenflächen', ['Rasen hinten links', ['Rasen hinten rechts', 100]], false, true));
-        //Programs.create_program(this, new Program('Rasenflächen', [{ 'name': 'Rasen hinten links', 'duration' : 0  }, 
-        //                                                           { 'name': 'Rasen hinten rechts', 'duration': 100} ]));
+        //Programs.create_program(this, new Program('Rasenflächen', [{ 'name': 'Rasen hinten links', 'duration' : 0  }, { 'name': 'Rasen hinten rechts', 'duration': 100} ], false, true));
+        //Programs.create_program(this, new Program('Beete', [{ 'name': 'Rasen hinten links', 'duration' : 5  }, { 'name': 'Rasen hinten rechts', 'duration': 8} ], false, true));
+        //Schedules.create_schedule(this, new Schedule('Test 1', '* * * * 0,10,20,30,40,50', 'Rasenflächen'));
         this.setState('info.connection', true, true);
-
+        this.log.info('IrrigatioControl adapter started');
     }
 
     /**
@@ -130,7 +143,11 @@ class IrrigationControl extends utils.Adapter {
             }
             if (comp[2] == 'programs' && this.progs) this.progs.stateChange(i, state);
         } else {
-            this.zones.stateChange(id, state);
+            if (id == this.config.rainSensor) {
+                this.weather.stateChange(id, state);
+            } else {
+                this.zones.stateChange(id, state);
+            }
         }
     }
 

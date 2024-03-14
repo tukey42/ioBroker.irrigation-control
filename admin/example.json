@@ -1,0 +1,53 @@
+{
+	"option1":false,
+	"option2":"42",
+	"schedule":"{\"time\":{\"exactTime\":true,\"start\":\"00:00\"},\"period\":{\"days\":1}}",
+	"rainSensor":"0_userdata.0.test",
+	"raintodayVal":0.2,
+	"rainyesterdayVal":0.5,
+	"zones":[
+		{
+			"name":"Test",
+			"state_device":"hm-rpc.0.KEQ0968491.1.STATE",
+			"ontime_device":"hm-rpc.0.KEQ0968491.1.ON_TIME",
+			"default_ontime":6,
+			"enabled":true
+		},
+		{
+			"name":"Test2",
+			"state_device":"",
+			"ontime_device":"",
+			"default_ontime":1,
+			"enabled":true
+		}
+	],
+	"programs":[
+		{
+			"name":"P1",
+			"zone_list":["Test"],
+			"parallel":false,
+			"enabled":true
+		},
+		{
+			"name":"P2",
+			"zone_list":["Test2"],
+			"parallel":false,
+			"enabled":true
+		},
+		{
+			"name":"P3",
+			"zone_list":["Test","Test2"],
+			"parallel":false,
+			"enabled":true
+		}
+	],
+	"cron":"*/7 * * * *",
+	"schedules":[
+		{
+			"name":"T1",
+			"program":"P1",
+			"enabled":true,
+			"schedules":"* * */3 * *"
+		}
+	]
+}

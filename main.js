@@ -75,7 +75,7 @@ class IrrigationControl extends utils.Adapter {
         // Reset the connection indicator during startup
         this.setState('info.connection', false, true);
 
-        this.log.info('Config data: ' + JSON.stringify(this.config));
+        this.log.debug('Config data: ' + JSON.stringify(this.config));
 
         this.zones = Zones.getInstance(this);
         this.progs = Programs.getInstance(this);
@@ -91,20 +91,13 @@ class IrrigationControl extends utils.Adapter {
         await this.schedules.initialize();
         await this.weather.initialize();
 
-        //this.log.info(`Get Zone list: ${JSON.stringify(this.zones.getzonelist())}`);
-
-
-        // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // this.config:
-
-
-        // Zones.create_zone(this, new Zone('Rasen hinten links', 'statedev', 'ontimedev', 60, true));
-        // Zones.create_zone(this, new Zone('Rasen hinten rechts', 'statedev', 'ontimedev', 60, true));
+        //Zones.create_zone(this, new Zone('Rasen hinten links', 'statedev', 'ontimedev', 60, true));
+        //Zones.create_zone(this, new Zone('Rasen hinten rechts', 'statedev', 'ontimedev', 60, true));
         //Programs.create_program(this, new Program('Rasenflächen', [{ 'name': 'Rasen hinten links', 'duration' : 0  }, { 'name': 'Rasen hinten rechts', 'duration': 100} ], false, true));
         //Programs.create_program(this, new Program('Beete', [{ 'name': 'Rasen hinten links', 'duration' : 5  }, { 'name': 'Rasen hinten rechts', 'duration': 8} ], false, true));
         //Schedules.create_schedule(this, new Schedule('Test 1', '* * * * 0,10,20,30,40,50', 'Rasenflächen'));
         this.setState('info.connection', true, true);
-        this.log.info('IrrigatioControl adapter started');
+        this.log.info('IrrigationControl adapter started');
     }
 
     /**
@@ -128,10 +121,10 @@ class IrrigationControl extends utils.Adapter {
     onStateChange(id, state) {
         if (state) {
             // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+            this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
         } else {
             // The state was deleted
-            this.log.info(`state ${id} deleted`);
+            this.log.debug(`state ${id} deleted`);
         }
         if (!this.zones || !this.progs) return;
         if (id.startsWith(this.namespace)) {
@@ -153,10 +146,10 @@ class IrrigationControl extends utils.Adapter {
 
     onObjectChange(id, obj) {
         if (obj) {
-            this.log.info(`object ${id} changed:  (${JSON.stringify(obj)})`);
+            this.log.debug(`object ${id} changed:  (${JSON.stringify(obj)})`);
             // Objekt geändert
         } else {
-            this.log.info(`object ${id} deleted`);
+            this.log.debug(`object ${id} deleted`);
             // Objekt gelöscht
         }
     }

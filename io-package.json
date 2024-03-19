@@ -107,6 +107,19 @@
             "native": {}
         },
         {
+            "_id": "info.active",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Number of zones active",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        {
             "_id": "zones",
             "type": "device",
             "common": {

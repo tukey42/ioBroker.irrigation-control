@@ -97,6 +97,7 @@ class IrrigationControl extends utils.Adapter {
         //Programs.create_program(this, new Program('Beete', [{ 'name': 'Rasen hinten links', 'duration' : 5  }, { 'name': 'Rasen hinten rechts', 'duration': 8} ], false, true));
         //Schedules.create_schedule(this, new Schedule('Test 1', '* * * * 0,10,20,30,40,50', 'Rasenflächen'));
         this.setState('info.connection', true, true);
+        this.setState('info.active', 0, true);
         this.log.info('IrrigationControl adapter started');
     }
 

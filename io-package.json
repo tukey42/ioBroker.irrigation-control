@@ -120,6 +120,19 @@
             "native": {}
         },
         {
+            "_id": "info.actprogram",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Active Program",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": "none"
+            },
+            "native": {}
+        },
+        {
             "_id": "zones",
             "type": "device",
             "common": {

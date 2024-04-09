@@ -23,6 +23,18 @@
                     "lg":4,
                     "xs":4,
                     "newLine": true
+                },
+                "numdays": {
+                    "type": "number",
+                    "label": "Number of days used for weather factor calculation",
+                    "min": 0,
+                    "max": 7,
+                    "default": 1,
+                    "sm":4,
+                    "md":4,
+                    "lg":4,
+                    "xs":4,
+                    "newLine": true
                 }
             }
         },
@@ -50,7 +62,7 @@
                             "tooltip": "eindeutiger Name der Zone",
                             "filter": false,
                             "sort": false,
-                            "default": "",
+                            "default": ""
                         },
                         {
                             "type": "objectId",

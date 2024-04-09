@@ -133,9 +133,10 @@ class IrrigationControl extends utils.Adapter {
             const i = id.substring(this.namespace.length+1);
             if (comp[2] == 'zones' && this.zones) {
                 this.zones.stateChange(i, state);
-                this.progs.zoneChange(i, state);
+                if (comp.at(-1) == 'state') this.progs.zoneChange(i, state);
             }
             if (comp[2] == 'programs' && this.progs) this.progs.stateChange(i, state);
+            if (comp[2] == 'schedules' && this.schedules)  this.schedules.stateChange(i, state);
         } else {
             if (id == this.config.rainSensor) {
                 this.weather.stateChange(id, state);

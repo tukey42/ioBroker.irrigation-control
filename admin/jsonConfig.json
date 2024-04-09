@@ -130,11 +130,11 @@
                             "width": "8% ",
                             "trim": false,
                             "title": "Programmname",
-                            "tooltip": "eindeutiger Name des Programms",
+                            "tooltip": "eindeutiger Name des Programms (aktuell Mehrfachangabe notwendig)",
                             "filter": false,
                             "sort": false,
                             "default": "",
-                            "Xvalidator": "const x={};for (const c of globalData.programs) {if (x[c.name]==='x') return false; x[c.name]='x';}; return true;",
+                            "validator": "const x={};for (const c of globalData.programs) {if (x[c.name]==='x') return true; x[c.name]='x';}; return true;",
                             "validatorNoSaveOnError": true
                         },
                         {

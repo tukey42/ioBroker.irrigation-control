@@ -1,6 +1,6 @@
 {
   "name": "iobroker.irrigation-control",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This adapter is able to define and control irrigation schedules.",
   "author": {
     "name": "Stefan Köhler",

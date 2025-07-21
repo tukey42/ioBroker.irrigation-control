@@ -15,6 +15,15 @@
                     "xs":4,
                     "newLine": true
                 },
+                "rainToday": {
+                    "type": "objectId",
+                    "label": "Select daily rain state",
+                    "sm":4,
+                    "md":4,
+                    "lg":4,
+                    "xs":4,
+                    "newLine": true
+                },
                 "weatherFactor": {
                     "type": "objectId",
                     "label": "Select state which contains the calculated weather factor",
